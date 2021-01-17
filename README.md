@@ -1,2 +1,4 @@
-# C-Class
-C++ Class 
+# C++ Practicals 
+C++ Class Practical Assessments 
+By Hannah Ho-Le
+Master in DSBA T2
