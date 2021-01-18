@@ -1,29 +1,32 @@
-//recursive C++ function that given an integer a and a non-negfative integer n computes the n-th power of a based on the following recursive definition
+//Exercise 7: recursive C++ function that given an integer a and a non-negfative integer n computes the n-th power of a based on the following recursive definition
+//note the equation
 #include <iostream>
 using namespace std;
+int calls=0; //define global variable 
 
-int calculatePower(int, int);
+int calc_power(int a, int n) //define function to calculate power 
+{   calls ++;
+    if(n==0)
+        return 1;
+    else
+    {
+        return(a*calc_power(a, n-1));
+    }
+}
 
 int main()
 {
-    int base, powerRaised, result;
+    int a, n, result;
 
-    cout << "Enter base number: ";
-    cin >> base;
+    cout << "Enter base number, a: ";
+    cin >> a;
 
     cout << "Enter power number(positive integer): ";
-    cin >> powerRaised;
+    cin >> n;
 
-    result = calculatePower(base, powerRaised);
-    cout << base << "^" << powerRaised << " = " << result;
-
+    result = calc_power(a, n);
+    cout << a << "^" << n << " is " << result<<endl;
+    cout<<"Number of calls is: "<<calls<<endl; 
+    cout<<"The number of recursive calls is 1 more than the power, n";
     return 0;
-}
-
-int calculatePower(int base, int powerRaised)
-{
-    if (powerRaised != 0)
-        return (base*calculatePower(base, powerRaised-1));
-    else
-        return 1;
 }
