@@ -1,6 +1,5 @@
-//Ex 3: Product of two polynomials(returns polynomial)
-//HH: check if val needs to be dynamic. ctrl+alt+ arrows for column deletion.
-//HH: check pointers etc . add commentss (1+x)(1+x)
+//Exercise 3: Product of two polynomials(returns polynomial)
+
 #include <iostream>
 #include<cmath>
 using namespace std;
@@ -15,7 +14,6 @@ double * read_poly(int &n){
     cin >> c[i]; //user to input 
   }
   return c; //returns 
-  
 }
 
 void print_poly(double *c, int n){ //n is number of term 
@@ -31,16 +29,15 @@ void print_poly(double *c, int n){ //n is number of term
 }
 
 //function to multiply polynomials 
-double * poli_prod (double * p1, int d1, double * p2, int d2)//p1, p2 are polynomials, d1 d2 are degrees of the polynomials,dr is degree result
+double * poli_prod (double * p1, int d1, double * p2, int d2)//p1, p2 are polynomials, d1 d2 are degrees of the polynomial.
 {   int i;
-    double *prod=new double[d1+d2]; //Initialize product polynomial. create product array size m+n-1
-    for(i=0; i<=(d1+d2); i++)
-        prod[i]=0;
-    for(i=0; i<=d1; i++)
+    double *prod=new double[d1+d2]; //Initialize product polynomial. create dynamic product array size d1+d2
+    for(i=0; i<=d1+d2; i++)
+        prod[i]=0; //initialize the array to 0
+    for(i=0; i<=d1; i++) //while the array position is less than or equal to the number of degrees of the first polynomial, execute the following
         {
-            for(int j=0; j<=d2; j++)
-            prod[i+j]+=p1[i]*p2[j];
-
+            for(int j=0; j<=d2; j++) //we take one coefficient at a time from the first polynomial and multiply it with each coefficient from the second polynomial. then repeat
+            prod[i+j]+=p1[i]*p2[j]; //it puts into an array and when we do another iteration, it adds the coefficients 
         }
     return prod;
 }
@@ -48,7 +45,7 @@ double * poli_prod (double * p1, int d1, double * p2, int d2)//p1, p2 are polyno
 int main()
 {
   double *q1, *q2, *val ; //* declare pointer 
-  int g1, g2, dx;
+  int g1, g2;
   cout<<"Enter information for first polynomial\n";   
   q1=read_poly(g1); //initialises p1 - points to memory address. reads an array 
   cout<<"The first polynomial is: ";
@@ -61,7 +58,7 @@ int main()
   cout<<"The product of the polynomials is: ";
   print_poly(val, g1+g2); 
 
-  delete[] q1, q2; //deletes memory allocated to p1 array 
+  delete[] q1, q2, val; //deletes memory allocated
   return 0;
 }
 
