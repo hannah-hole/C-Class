@@ -1,4 +1,4 @@
-//define a data-type for representing point in the Cartesian place
+//ex 3: define a data-type for representing point in the Cartesian place
 //called Point
 //must have x and y co ordinate
 //allow to compute distance of chosen point to another point 
@@ -53,3 +53,4 @@ int main()
     cout<<"distance between points is: "<<p1.distance(p2);
     return 0;
 }
+
