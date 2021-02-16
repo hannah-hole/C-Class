@@ -2,7 +2,7 @@
 #include "Stack.hpp"
 
 int main(){
-    Stack<int>elements = Stack<int>(6);
+    Stack<int>elements = Stack<int>(6); //calls template function. elements is the identifier.  allow for 6 elements 
     elements.print(); 
     elements.push(2);
     elements.push(4);
